@@ -1,0 +1,7 @@
+-e line ../tests/file_1.txt    no_such_file.txt
+-e line    no_such_file.txt ../tests/file_1.txt 
+-e line    no_such_file.txt    no_such_file.txt
+-e line ../tests/file_1.txt -e
+-e line ../tests/file_1.txt -f
+-e line ../tests/file_1.txt -f no_such_file.txt
+------- line ../tests/file_1.txt
