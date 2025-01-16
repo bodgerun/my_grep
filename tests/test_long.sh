@@ -2,7 +2,7 @@
 
 source ../tests/utils.sh
 
-program=../tests/create_long_line
+program=../tests/create_long
 fname=../tests/long_lines.txt     # to match patterns with
 pname=../tests/long_patterns.txt  # to take patterns from
 out_0=../tests/out_orig.txt

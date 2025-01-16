@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# -lt 1 ]; then
-  echo "Usage: ./test_input_code.sh INPUT ..."
+  echo "Usage: ./test_code_man.sh INPUT ..."
   exit -1
 fi
 
@@ -9,7 +9,7 @@ source ../tests/utils.sh
 
 fails=0
 
-__header__ "my_grep - input - code"
+__header__ "my_grep - code - man"
 
 for input in $@; do
   while IFS= read line; do  

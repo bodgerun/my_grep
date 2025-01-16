@@ -5,7 +5,7 @@ int main(int argc, char **argv) {
   int res_code = 0;
 
   if (argc != 4) {
-    fprintf(stderr, "Usage: ./create_long_line FILE CHAR LEN");
+    fprintf(stderr, "Usage: ./create_long FILE CHAR LEN");
     res_code = -1;
   }
 

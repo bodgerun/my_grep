@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# -lt 3 ]; then
-  echo "Usage: ./test_grep_code.sh FLAGS PATTERNS FILE ..."
+  echo "Usage: ./test_code_man.sh FLAGS PATTERNS FILE ..."
   exit -1
 fi
 
@@ -11,7 +11,7 @@ flags_list=$1
 pats=$2
 fails=0
 
-__header__ "my_grep - code"
+__header__ "my_grep - code - man"
 
 shift 2
 

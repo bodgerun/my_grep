@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# -lt 3 ]; then
-  echo "Usage: ./test_grep_diff.sh FLAGS PATTERNS FILE ..."
+  echo "Usage: ./test_diff_auto.sh FLAGS PATTERNS FILE ..."
   exit -1
 fi
 
@@ -13,7 +13,7 @@ out_0=out_orig.txt
 out_1=out_mine.txt
 fails=0
 
-__header__ "my_grep - diff"
+__header__ "my_grep - diff - auto"
 
 shift 2
 

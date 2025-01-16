@@ -1,0 +1,24 @@
+    -f ../tests/pats_1.txt ../tests/file_1.txt ../tests/file_2.txt
+-c  -f ../tests/pats_1.txt ../tests/file_1.txt ../tests/file_2.txt
+-h  -f ../tests/pats_1.txt ../tests/file_1.txt ../tests/file_2.txt
+-i  -f ../tests/pats_1.txt ../tests/file_1.txt ../tests/file_2.txt
+-l  -f ../tests/pats_1.txt ../tests/file_1.txt ../tests/file_2.txt
+-n  -f ../tests/pats_1.txt ../tests/file_1.txt ../tests/file_2.txt
+-o  -f ../tests/pats_1.txt ../tests/file_1.txt ../tests/file_2.txt
+-s  -f ../tests/pats_1.txt ../tests/file_1.txt ../tests/file_2.txt
+-v  -f ../tests/pats_1.txt ../tests/file_1.txt ../tests/file_2.txt
+-cl -f ../tests/pats_1.txt ../tests/file_1.txt ../tests/file_2.txt
+-ov -f ../tests/pats_1.txt ../tests/file_1.txt ../tests/file_2.txt
+-e line  -e line           ../tests/file_1.txt
+-e line  -e line  -v       ../tests/file_1.txt
+-e line  -e line  -o       ../tests/file_1.txt
+-e line  -e line  -o -v    ../tests/file_1.txt
+-e hello                   ../tests/file_2.txt
+-e hello -i                ../tests/file_2.txt
+-e hello -i -o             ../tests/file_2.txt
+-e hello -i -v             ../tests/file_2.txt
+-f ../tests/pats_1.txt  -f ../tests/pats_1.txt ../tests/file_2.txt
+-f ../tests/pats_0.txt                         ../tests/file_2.txt
+-f ../tests/pats_0.txt  -f ../tests/pats_0.txt ../tests/file_2.txt
+-f ../tests/empty.txt   -f ../tests/pats_0.txt ../tests/file_2.txt
+-f ../tests/empty.txt                          ../tests/file_2.txt

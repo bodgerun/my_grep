@@ -1,23 +1,20 @@
 #!/bin/bash
 
 if [ $# -lt 1 ]; then
-  echo "Usage: ./test_input_diff.sh INPUT ..."
+  echo "Usage: ./test_mem_leaks.sh INPUT ..."
   exit -1
 fi
 
 source ../tests/utils.sh
 
-out_0=out_orig.txt
-out_1=out_mine.txt
+log=../tests/leaks_log.txt
 fails=0
 
-__header__ "my_grep - diff"
+__header__ "my_grep - leaks"
 
 for input in $@; do
   while IFS= read line; do
-    grep      $line > $out_0
-    ./my_grep $line > $out_1
-    diff $out_0 $out_1
+    leaks > $log 2>&1 -atExit -- ./my_grep $line
 
     if [ $? -eq 0 ]; then
       echo $green"OK:   $line"$reset
@@ -25,6 +22,7 @@ for input in $@; do
       if [ $fails -lt 255 ]; then
         (( fails++ ))
       fi
+      cat $log | grep LEAK:
       echo $red"FAIL: $line"$reset
     fi
   done < $input
@@ -32,6 +30,6 @@ done
 
 __footer__ $fails
 
-rm -f $out_0 $out_1
+rm -f $log
 
 exit $fails

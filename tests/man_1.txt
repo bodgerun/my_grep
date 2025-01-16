@@ -10,19 +10,19 @@ world ../tests/file_2.txt ../tests/file_2.txt
 -e hello -i               ../tests/file_2.txt
 -e hello -i -o            ../tests/file_2.txt
 -e hello -i -v            ../tests/file_2.txt
--f ../tests/empty.txt                                   ../tests/file_1.txt
--f ../tests/empty.txt       -e line                     ../tests/file_1.txt
--f ../tests/empty.txt       -f ../tests/grep_pats_0.txt ../tests/file_1.txt
--f ../tests/empty.txt    -v -f ../tests/grep_pats_0.txt ../tests/file_1.txt
--f ../tests/empty.txt       -f ../tests/grep_pats_1.txt ../tests/file_1.txt
--f ../tests/empty.txt    -v -f ../tests/grep_pats_1.txt ../tests/file_1.txt
--f ../tests/grep_pats_0.txt -f ../tests/grep_pats_0.txt ../tests/file_1.txt
--f ../tests/grep_pats_1.txt -f ../tests/grep_pats_1.txt ../tests/file_1.txt
+-f ../tests/empty.txt                            ../tests/file_1.txt
+-f ../tests/empty.txt  -e line                   ../tests/file_1.txt
+-f ../tests/empty.txt     -f ../tests/pats_0.txt ../tests/file_1.txt
+-f ../tests/empty.txt  -v -f ../tests/pats_0.txt ../tests/file_1.txt
+-f ../tests/empty.txt     -f ../tests/pats_1.txt ../tests/file_1.txt
+-f ../tests/empty.txt  -v -f ../tests/pats_1.txt ../tests/file_1.txt
+-f ../tests/pats_0.txt    -f ../tests/pats_0.txt ../tests/file_1.txt
+-f ../tests/pats_1.txt    -f ../tests/pats_1.txt ../tests/file_1.txt
 -inos -e world ../tests/file_2.txt
 -soni -e world ../tests/file_2.txt
 ../tests/file_2.txt -inos -e world
 ../tests/file_2.txt -soni -e world
 -e hello ../tests/file_2.txt -e world
 -oeline  ../tests/file_1.txt
--of../tests/grep_pats_1.txt -i ../tests/file_1.txt
--ooooooi hello                 ../tests/file_1.txt
+-of../tests/pats_1.txt -i ../tests/file_1.txt
+-ooooooi hello            ../tests/file_1.txt

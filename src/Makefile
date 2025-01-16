@@ -11,23 +11,31 @@ SRCMOD := my_grep.c \
 
 OBJMOD := $(SRCMOD:.c=.o)
 
-TESTS   := ../tests/
-FILE_1  := $(TESTS)file_1.txt
-FILE_2  := $(TESTS)file_2.txt
-FLAGS   := $(TESTS)flags_grep.txt
-PATS_0  := $(TESTS)grep_pats_0.txt
-PATS_1  := $(TESTS)grep_pats_1.txt
-PATS_2  := $(TESTS)grep_pats_2.txt
-INPUT_0 := $(TESTS)input_grep_0.txt # for valgrind
-INPUT_1 := $(TESTS)input_grep_1.txt # normal cases
-INPUT_2 := $(TESTS)input_grep_2.txt # error cases
+TESTS          := ../tests/
+FILE_1         := $(TESTS)file_1.txt
+FILE_2         := $(TESTS)file_2.txt
+FLAGS          := $(TESTS)flags.txt
+PATS_0         := $(TESTS)pats_0.txt
+PATS_1         := $(TESTS)pats_1.txt
+PATS_2         := $(TESTS)pats_2.txt
+MAN_0          := $(TESTS)man_0.txt   # for valgrind
+MAN_1          := $(TESTS)man_1.txt   # normal cases
+MAN_2          := $(TESTS)man_2.txt   # error cases
+TEST_ALL       := $(TESTS)test_all.sh
+TEST_DIFF_AUTO := $(TESTS)test_diff_auto.sh
+TEST_DIFF_MAN  := $(TESTS)test_diff_man.sh
+TEST_CODE_AUTO := $(TESTS)test_code_auto.sh
+TEST_CODE_MAN  := $(TESTS)test_code_man.sh
+TEST_LONG      := $(TESTS)test_long.sh
+TEST_LEAKS     := $(TESTS)test_mem_leaks.sh
+TEST_VALGRIND  := $(TESTS)test_mem_valgrind.sh
 
 ifeq ($(shell uname), Darwin) # MacOS
 VALGRIND := @echo "\nValgrind is not supported on MacOS\n"
-LEAKS    := $(TESTS)test_input_leaks.sh $(INPUT_0) $(INPUT_2)
+LEAKS    := $(TEST_LEAKS) $(MAN_0) $(MAN_2)
 LINTER   := clang-format
 else                          # Linux
-VALGRIND := $(TESTS)test_input_valgrind.sh grep $(INPUT_0) $(INPUT_2)
+VALGRIND := $(TEST_VALGRIND) $(MAN_0) $(MAN_2)
 LEAKS    := @echo "\nLeaks is not supported on Linux\n"
 LINTER   := clang-format-13
 endif
@@ -91,34 +99,34 @@ clean:
 rebuild: clean clang my_grep
 
 test: my_grep
-	$(TESTS)test_grep.sh
+	$(TEST_ALL)
 
-test_diff_pats_0: my_grep
-	$(TESTS)test_grep_diff.sh $(FLAGS) $(PATS_0) $(FILE_1) $(FILE_2)
+test_diff_auto_0: my_grep
+	$(TEST_DIFF_AUTO) $(FLAGS) $(PATS_0) $(FILE_1) $(FILE_2)
 
-test_diff_pats_1: my_grep
-	$(TESTS)test_grep_diff.sh $(FLAGS) $(PATS_1) $(FILE_1) $(FILE_2)
+test_diff_auto_1: my_grep
+	$(TEST_DIFF_AUTO) $(FLAGS) $(PATS_1) $(FILE_1) $(FILE_2)
 
-test_diff_pats_2: my_grep
-	$(TESTS)test_grep_diff.sh $(FLAGS) $(PATS_2) $(FILE_1) $(FILE_2)
+test_diff_auto_2: my_grep
+	$(TEST_DIFF_AUTO) $(FLAGS) $(PATS_2) $(FILE_1) $(FILE_2)
 
-test_diff_manual: my_grep
-	$(TESTS)test_input_diff.sh $(INPUT_1)
+test_diff_man: my_grep
+	$(TEST_DIFF_MAN) $(MAN_1)
 
-test_code_pats_0: my_grep
-	$(TESTS)test_grep_code.sh $(FLAGS) $(PATS_0) $(FILE_1) $(FILE_2)
+test_code_auto_0: my_grep
+	$(TEST_CODE_AUTO) $(FLAGS) $(PATS_0) $(FILE_1) $(FILE_2)
 
-test_code_pats_1: my_grep
-	$(TESTS)test_grep_code.sh $(FLAGS) $(PATS_1) $(FILE_1) $(FILE_2)
+test_code_auto_1: my_grep
+	$(TEST_CODE_AUTO) $(FLAGS) $(PATS_1) $(FILE_1) $(FILE_2)
 
-test_code_pats_2: my_grep
-	$(TESTS)test_grep_code.sh $(FLAGS) $(PATS_2) $(FILE_1) $(FILE_2)
+test_code_auto_2: my_grep
+	$(TEST_CODE_AUTO) $(FLAGS) $(PATS_2) $(FILE_1) $(FILE_2)
 
-test_code_manual: my_grep
-	$(TESTS)test_input_code.sh $(INPUT_1) $(INPUT_2)
+test_code_man: my_grep
+	$(TEST_CODE_MAN) $(MAN_1) $(MAN_2)
 
 test_long: my_grep
-	$(TESTS)test_grep_long.sh
+	$(TEST_LONG)
 
 test_valgrind: my_grep
 	$(VALGRIND)
@@ -139,14 +147,14 @@ test_cppcheck:
         clean \
         rebuild \
         test \
-        test_diff_pats_0 \
-        test_diff_pats_1 \
-        test_diff_pats_2 \
-        test_diff_manual \
-        test_code_pats_0 \
-        test_code_pats_1 \
-        test_code_pats_2 \
-        test_code_manual \
+        test_diff_auto_0 \
+        test_diff_auto_1 \
+        test_diff_auto_2 \
+        test_diff_man \
+        test_code_auto_0 \
+        test_code_auto_1 \
+        test_code_auto_2 \
+        test_code_man \
         test_long \
         test_valgrind \
         test_leaks \
