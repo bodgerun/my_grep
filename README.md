@@ -1,6 +1,6 @@
 # `my_grep`
 
-My own implementation of the `grep` standard Unix utility.
+My own implementation of the standard Unix utility `grep`.
 
 Syntax:
 `$ my_grep [OPTIONS] [PATTERN] FILE ...`
@@ -12,7 +12,7 @@ The following options are supported:
 - `-h` - hide filenames;
 - `-i` - ignore case;
 - `-l` - print only filenames, not lines;
-- `-n` - precede each printed line with a number;
+- `-n` - precede each printed line with a number;
 - `-o` - print only matched parts of lines;
 - `-s` - silent mode (no error messages);
 - `-v` - invert match.

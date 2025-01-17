@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# -lt 3 ]; then
-  echo "Usage: ./test_code_man.sh FLAGS PATTERNS FILE ..."
+  echo "Usage: ./test_3_code_auto.sh FLAGS PATTERNS FILE ..."
   exit -1
 fi
 

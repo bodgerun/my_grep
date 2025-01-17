@@ -21,14 +21,14 @@ PATS_2         := $(TESTS)pats_2.txt
 MAN_0          := $(TESTS)man_0.txt   # for valgrind
 MAN_1          := $(TESTS)man_1.txt   # normal cases
 MAN_2          := $(TESTS)man_2.txt   # error cases
-TEST_ALL       := $(TESTS)test_all.sh
-TEST_DIFF_AUTO := $(TESTS)test_diff_auto.sh
-TEST_DIFF_MAN  := $(TESTS)test_diff_man.sh
-TEST_CODE_AUTO := $(TESTS)test_code_auto.sh
-TEST_CODE_MAN  := $(TESTS)test_code_man.sh
-TEST_LONG      := $(TESTS)test_long.sh
-TEST_LEAKS     := $(TESTS)test_mem_leaks.sh
-TEST_VALGRIND  := $(TESTS)test_mem_valgrind.sh
+TEST_ALL       := $(TESTS)test_0_all.sh
+TEST_DIFF_AUTO := $(TESTS)test_1_diff_auto.sh
+TEST_DIFF_MAN  := $(TESTS)test_2_diff_man.sh
+TEST_CODE_AUTO := $(TESTS)test_3_code_auto.sh
+TEST_CODE_MAN  := $(TESTS)test_4_code_man.sh
+TEST_LONG      := $(TESTS)test_5_long.sh
+TEST_LEAKS     := $(TESTS)test_6A_mem_leaks.sh
+TEST_VALGRIND  := $(TESTS)test_6B_mem_valgrind.sh
 
 ifeq ($(shell uname), Darwin) # MacOS
 VALGRIND := @echo "\nValgrind is not supported on MacOS\n"

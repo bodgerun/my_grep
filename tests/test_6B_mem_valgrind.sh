@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# -lt 1 ]; then
-  echo "Usage: ./test_mem_valgrind.sh INPUT ..."
+  echo "Usage: ./test_6B_mem_valgrind.sh INPUT ..."
   exit -1
 fi
 

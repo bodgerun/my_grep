@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# -lt 1 ]; then
-  echo "Usage: ./test_code_man.sh INPUT ..."
+  echo "Usage: ./test_4_code_man.sh INPUT ..."
   exit -1
 fi
 

@@ -3,11 +3,11 @@
 source ../tests/utils.sh
 
 # test scripts:
-test_diff_auto=../tests/test_diff_auto.sh
-test_diff_man=../tests/test_diff_man.sh
-test_code_auto=../tests/test_code_auto.sh
-test_code_man=../tests/test_code_man.sh
-test_long=../tests/test_long.sh
+test_diff_auto=../tests/test_1_diff_auto.sh
+test_diff_man=../tests/test_2_diff_man.sh
+test_code_auto=../tests/test_3_code_auto.sh
+test_code_man=../tests/test_4_code_man.sh
+test_long=../tests/test_5_long.sh
 
 # all combinations of grep flags:
 flags=../tests/flags.txt 
